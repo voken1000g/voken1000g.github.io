@@ -1,19 +1,15 @@
 import { join } from 'path'
 
-const baseUrl = '/'
+const baseUrl = process.env.BASE_URL
 
 export default {
-  /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
-  mode: 'spa',
+  ssr: false,
 
   /*
   ** 404 for SPA
   */
   generate: {
-    dir: 'docs',
+    dir: 'dist',
     fallback: true
   },
 
@@ -25,18 +21,18 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'server',
+  target: 'static',
 
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: 'xxx.github.io',
+    title: 'voken1000g',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'xxx.github.io' },
+      { hid: 'description', name: 'description', content: 'voken1000g.github.io' },
 
       { name: 'msapplication-TileColor', content: '#ffffff' },
       { name: 'msapplication-TileImage', content: baseUrl + 'favicon/ms-icon-144x144.png' },

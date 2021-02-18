@@ -1,0 +1,73 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  auto-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: install
+        run: yarn
+
+      - name: build
+        run: yarn build
+
+      - name: deploy (repo)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          commit-message: "@${{ github.sha }}"
+          branch: gh-pages
+          folder: dist
+
+      - name: deploy (voken1000gb)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000gb/voken1000gb.github.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: voken1000gb
+          folder: dist
+
+      - name: deploy (voken1TB)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1TB/voken1TB.github.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: voken1TB
+          folder: dist
+
+      - name: deploy (vokenTB)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: vokenTB/vokenTB.github.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: vokenTB
+          folder: dist
+
+      - name: deploy (vokenTera)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: vokenTera/vokenTera.github.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: vokenTera
+          folder: dist
+
+      - name: deploy (vokenTeraByte)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: vokenTeraByte/vokenTeraByte.github.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: vokenTeraByte
+          folder: dist
