@@ -10,7 +10,7 @@
     "serve": "nuxt-ts serve"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.4.10",
+    "@nuxt/typescript-runtime": "^2.1.0",
     "@tailwindcss/ui": "^0.7.2",
     "node-sass": "^5.0.0",
     "nuxt": "^2.15.3",
